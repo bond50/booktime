@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
-    'contact.apps.ContactConfig'
+    'contact.apps.ContactConfig',
+    'address'
 
 ]
 
