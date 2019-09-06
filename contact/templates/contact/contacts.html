@@ -1,0 +1,74 @@
+{% extends "base1.html" %}
+{% block content %}
+    <form method="POST">
+        <div>
+            <h3 class="text-center">Contact Us </h3>
+        </div>
+        <h5>We'd love to hear from you.</h5>
+        <p><strong>X-Doria Inc.</strong><br>
+            <em>
+                <small>Nairobi, Kenya</small>
+            </em></p>
+        <p><strong>Hours</strong><br>
+            <small><em>Mon-Fri: 9am - 6pm, PST</em></small>
+        </p>
+
+          {% csrf_token %}  
+        <div class="form-group">
+            <input type="text"
+                   class="form-control {% if form.name.errors %}is-invalid{% endif %}"
+                   id="id_name"
+                   name="name"
+                   placeholder="Your Name"
+                   value="{{ form.name.value|default:"" }}">
+            {% if form.name.errors %} 
+                <div class="invalid-feedback">
+                    {{ form.name.errors }}
+                </div>
+            {% endif %}  
+        </div>
+        <div class="form-group">
+            <input type="email"
+                   class="form-control {% if form.from_email.errors %}is-invalid{% endif %}"
+                   id="id_email"
+                   name="from_email"
+                   placeholder="Your Email Address"
+                   value="{{ form.from_email.value|default:"" }}">
+            {% if form.from_email.errors %} 
+                <div class="invalid-feedback">
+                    {{ form.from_email.errors }}
+                </div>
+            {% endif %}  
+        </div>
+        <div class="form-group">
+            <input type="text"
+                   class="form-control {% if form.subject.errors %}is-invalid{% endif %}"
+                   id="id_subject"
+                   name="subject"
+                   placeholder="Subject Here"
+                   value="{{ form.subject.value|default:"" }}">
+            {% if form.name.errors %} 
+                <div class="invalid-feedback">
+                    {{ form.subject.errors }}
+                </div>
+            {% endif %}  
+        </div>
+
+        <div class="form-group">
+            <small>{{ form.message.label_tag }}</small>
+            <textarea
+                    class="form-control {% if form.message.errors %}is-invalid{% endif %}"
+                    id="id_message"
+                    name="message"
+                    rows="5">
+                {{ form.message.value|default:"" }}
+            </textarea>
+            {% if form.message.errors %}      
+                <div class="invalid-feedback">
+                    {{ form.message.errors }}      
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+{% endblock content %}

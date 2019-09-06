@@ -1,0 +1,24 @@
+{% extends "base1.html" %}
+{% block content %}
+    <h2 class="text-center">Please fill the form below.</h2>
+ <div class="col-md-6 offset-md-3">
+         <form method="POST" action="{% url 'accounts:edit_profile' %}">
+             {% csrf_token %}
+             {% if form.errors %}
+                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <small><sup>x</sup></small>
+              </button>
+              {% for field in form %}
+                  {% if field.errors %}
+                      {{ field.errors }}
+                  {% endif %}
+                 {% endfor %}
+          </div>
+
+             {% endif %}
+             {{ form.as_p }}
+             <button type="submit" class="btn btn-danger">Submit</button>
+         </form>
+     </div>
+{% endblock content %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Main </title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/pricing/">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootstrap theme</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <div class="container">
+        <a class="navbar-brand " href="{% url 'index' %}">BookTime</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item {% if request.path == "/" %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'accounts:edit_profile' %}">Edit Profile</a>
+                            <a class="dropdown-item" href="{% url 'accounts:change_password' %}">Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout </a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item {% if request.path == "/contact/email/" %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'contact:contact' %}">Contact Us</a>
+                    </li>
+                    <li class="nav-item {% if request.path == "/contact/about-us/" %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'contact:about_us' %}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'accounts:register' %}">Register</a>
+                            <a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a>
+                            <a class="dropdown-item" href="{% url 'contact:pricing' %}">Pricing</a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <small><sup>x</sup></small>
+            </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<br>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<br>
+<footer class="py-3 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; BookTime 2019-2020</p>
+    </div>
+
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static  'bootstrap/js/jquery/jquery.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
+<!-- Latest compiled and minified CSS -->
