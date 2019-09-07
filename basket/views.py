@@ -18,9 +18,9 @@ def add_to_basket(request):
         basket = models.Basket.objects.create(user=user)
 
         request.session["basket_id"] = basket.id
-        basketline, created = models.BasketLine.objects.get_or_create(basket=basket, product=product)
+    basketline, created = models.BasketLine.objects.get_or_create(basket=basket, product=product)
 
-        if not created:
-            basketline.quantity += 1
-            basketline.save()
-        return HttpResponseRedirect(reverse("main:product", args=(product.slug,)))
+    if not created:
+        basketline.quantity += 1
+        basketline.save()
+    return HttpResponseRedirect(reverse("main:product", args=(product.slug,)))
