@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from .forms import UserCreationForm
 
+
 import logging
 from django.contrib import messages
 from django.views.generic.edit import FormView
