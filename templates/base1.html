@@ -76,7 +76,13 @@
     </div>
 {% endfor %}
 
-
+<br>
+{% if request.basket %}
+       <div>
+         {{ request.basket.count }}
+         items in basket
+       </div>
+     {% endif %}
 <br>
 <div class="container">
     {% block content %}
