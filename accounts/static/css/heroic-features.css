@@ -6,3 +6,6 @@
 body {
   padding-top: 56px;
 }
+.form-horizontal .col-xs-3 {
+  padding:0;
+}

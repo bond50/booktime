@@ -1,0 +1,16 @@
+{% extends 'base1.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+        <form method="post" class="form-horizontal" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div>
+                <button type="submit" class="btn btn-primary ">Submit</button>
+                <button type="reset" class="btn btn-outline-info ">Clear</button>
+            </div>
+            </div>
+        </form>
+{% endblock %}

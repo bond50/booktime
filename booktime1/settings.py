@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
     'contact.apps.ContactConfig',
-    'address'
+    'address',
+    'bootstrap4',
+    'crispy_forms',
+    'widget_tweaks',
 
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
