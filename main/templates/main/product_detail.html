@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base1.html" %}
 {% block content %}
     <h1>products</h1>  
     <table class="table">
@@ -56,5 +56,5 @@
         </tr>
           
     </table>
-    <a href="{% url "add_to_basket" %}?product_id={{ object.id }}">Add to basket</a>
+    <a href="{% url "basket:add_to_basket" %}?product_id={{ object.id }}">Add to basket</a>
 {% endblock content %}
