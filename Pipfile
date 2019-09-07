@@ -1,0 +1,31 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+psycopg2 = "*"
+pillow = "*"
+faker = "*"
+django-extensions = "*"
+pydotplus = "*"
+ipython = "*"
+werkzeug = "*"
+djangorestframework = "*"
+aioredis = "*"
+channels = "*"
+channels-redis = "*"
+aiohttp = "*"
+whitenoise = "*"
+django-environ = "*"
+boto3 = "*"
+django-storages = "*"
+django-bootstrap4 = "*"
+django-crispy-forms = "*"
+django-widget-tweaks = "*"
+
+[requires]
+python_version = "3.7"
