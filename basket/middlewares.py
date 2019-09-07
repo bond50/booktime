@@ -11,4 +11,5 @@ def basket_middleware(get_response):
             request.basket = None
         response = get_response(request)
         return response
-    return middleware()
+
+    return middleware
