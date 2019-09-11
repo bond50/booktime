@@ -1,72 +1,94 @@
 {% extends "base1.html" %}
 {% block content %}
-    <div class="col-md-8 offset-md-2">
-        <div id="branding">
-            {% block branding %}
-                <h2 id="site-name"><a href="{% url 'accounts:register' %}">{{ site_header|default:_('Registration') }}</a></h2>
-            {% endblock %}
-        </div>
+    <div class="container1">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header bg-primary text-white"><i class="fa fa-registered "></i> Sign Up.
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% if form.errors %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <small><sup>x</sup></small>
+                                    </button>
+                                    {% for field in form %}
+                                        {% if field.errors %}
+                                            {{ field.errors }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {{ form.non_field_errors }}
+                                </div>
+                            {% endif %}
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input
+                                        type="email"
+                                        class="form-control "
+                                        id="id_email"
+                                        name="email"
+                                        placeholder="Your Email">
+                                {% if form.email.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.email.errors }}
+                                    </div>
+                                {% endif %}  
 
-        <form method="POST">
-            {% csrf_token %}
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
 
-            {% if form.errors %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <small><sup>x</sup></small>
-                    </button>
-                    {% for field in form %}
-                        {% if field.errors %}
-                            {{ field.errors }}
-                        {% endif %}
-                    {% endfor %}
+                                <input
+                                        type="password"
+                                        class="form-control "
+                                        id="id_password1"
+                                        name="password1"
+                                        placeholder="Password"
+                                        value="{{ form.password1.value|default:"" }}">
+                                {% if form.password1.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.password1.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+
+                                <input
+                                        type="password"
+                                        class="form-control "
+                                        id="id_password1"
+                                        name="password2"
+                                        placeholder="Password confirmation"
+                                        value="{{ form.password2.value|default:"" }}">
+                                {% if form.password2.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ form.password2.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="mx-auto">
+                                <button type="submit" class="btn btn-primary text-right ">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            <a href="{% url 'accounts:login' %}">Already registered ? Login here</a>
+                        </div>
+                    </div>
+
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <input
-                        type="email"
-                        class="form-control "
-                        id="id_email"
-                        name="email"
-                        placeholder="Your Email"
-                        value="{{ form.email.value|default:"" }}">
-                {% if form.email.errors %}
-                    <div class="invalid-feedback">
-                        {{ form.email.errors }}
-                    </div>
-                {% endif %}  
             </div>
-            <div class="form-group">
-            {{ form.password1.label_tag }}
-                <input
-                        type="password"
-                        class="form-control "
-                        id="id_password1"
-                        name="password1"
-                        placeholder="Password"
-                        value="{{ form.password1.value|default:"" }}">
-                {% if form.password1.errors %}
-                    <div class="invalid-feedback">
-                        {{ form.password1.errors }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="form-group">
-
-                <input
-                        type="password"
-                        class="form-control "
-                        id="id_password1"
-                        name="password2"
-                         placeholder="Password confirmation"
-                        value="{{ form.password2.value|default:"" }}">
-                {% if form.password2.errors %}
-                    <div class="invalid-feedback">
-                        {{ form.password2.errors }}
-                    </div>
-                {% endif %}
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-        </form>
+        </div>
     </div>
 {% endblock content %}
