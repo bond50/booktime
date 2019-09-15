@@ -1,18 +1,29 @@
 /*removing rounded corners*/
 
 
-/*nav*/
-.navbar ul {
-    padding: 0px 30px 0px 0px;
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: auto;
+}
 
+
+.navbar {
+    background-color: #263238;
+}
+
+.navbar .brand-navbar img:hover {
+    opacity: 0.7;
+}
+
+.navbar ul {
+    padding: 0 30px 0 0;
 }
 
 .navbar ul li a {
     color: white;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0 0 10px;
     text-transform: uppercase;
     font-size: 12px;
-
 }
 
 .navbar ul li a .fa {
@@ -21,49 +32,112 @@
 }
 
 .navbar ul li a:hover {
-    color: white;
-    background-color: palevioletred;
+    color: navajowhite;
+    background-color: #15b000;
 }
 
 .navbar ul li.active > a {
-    color: palevioletred;
-    font-weight: bold;
+    color: antiquewhite;
+    font-weight: bolder;
     font-size: 12px;
-    border-left: 3px solid palegoldenrod;
+    border-left: 3px solid #15b000;
     border-radius: 40px;
 }
 
-.dropdown {
-    border-radius: 0;
-    border: 0;
+.iconStyle {
+    color: #15b000;
 }
 
-.dropdown-menu {
-    background: grey;
-    border: 0;
-    top: 80%;
-    border-radius: 0px 0px 5px 5px;
+/*=====================================Slier============================================*/
+
+
+header .carousel-inner .item {
+    height: 60vh;
 }
 
-.dropdown-item:hover {
-    background: palevioletred;
-    color: #fff;
+.carousel-caption {
+    padding-bottom: 130px;
 }
 
-.dropdown-menu a {
-    color: #fff;
+.carousel-caption h1 {
+    font-size: 70px;
+    font-weight: bolder;
+    text-shadow: 3px 3px #15b000;;
+    text-transform: uppercase;
+    animation-delay: 1s;
+    animation-duration: 2s;
 }
 
+.carousel-caption p {
+    animation-delay: 1s;
+}
 
+.carousel-caption .btn {
+    animation-delay: 1s;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    margin-top: 20px;
+    animation-duration: 2s;
+}
 
+.carousel-control-prev {
+    width: 48px;
+    height: 48px;
+    top: auto;
+    bottom: 0;
+    font-size: 2rem;
+}
 
-/*login/registration/contact*/
+.carousel-control-next {
+    width: 48px;
+    height: 48px;
+    top: auto;
+    bottom: 0;
+    font-size: 2rem;
+}
+
+/*=====================================Slier============================================*/
+
+@media only screen and (max-width: 480px) {
+    .carousel-caption {
+        padding-bottom: 20px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 3px 3px #15b000;;
+        text-transform: uppercase;
+        animation-delay: 1s;
+        animation-duration: 2s;
+    }
+
+    .carousel-caption p {
+        animation-delay: 1s;
+        font-size: 10px;
+    }
+
+    .carousel-caption .btn {
+        animation-delay: 1s;
+        border-radius: 20px;
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+        margin-top: 5px;
+        animation-duration: 2s;
+        padding: 5px;
+        font-size: 10px;
+    }
+}
 
 
 .card {
     width: 500px;
     height: auto;
     margin: 5px;
+
 
 }
 
@@ -72,28 +146,39 @@
     background-color: palevioletred;
     color: black;
     border: 0 !important;
+
 }
 
 .btn-primary:hover {
     color: white;
-    background-color: palevioletred;
+    background-color: #15b000;
+
 }
 
-
+.btn:hover,
+.btn:active {
+    background-color: #00695c;
+    color: white;
+}
 
 
 .links a {
     color: black;
-    margin-left: 4px;
+
+    text-align: center;
+    text-decoration: none;
+    animation-delay: 1s;
+    animation-duration: 2s;
+
+
 }
 
 .links a:hover {
-    color: grey;
+    background-color: #15b000;
     margin-left: 4px;
+
 }
 
-
-/*footer*/
 
 .col_white_amrc {
     color: #FFF;
@@ -104,6 +189,7 @@ footer {
     background-color: #263238;
     min-height: 250px;
     padding: 10px 0px 25px 0px;
+    box-sizing: border-box;
 }
 
 .pt2 {
@@ -127,6 +213,7 @@ footer p {
     list-style-type: none;
     font-size: 14px;
     padding: 0px 0px 10px 0px;
+
 }
 
 .footer_ul_amrc li {
@@ -216,3 +303,4 @@ footer p {
     height: 20px;
     text-align: center;
 }
+

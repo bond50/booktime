@@ -1,6 +1,18 @@
 {% extends "base1.html" %}
 {% block content %}
-      <h2>About us</h2>
+
+
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'contact:about_us' %}">Contact</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
 
     <div class="col-text">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.

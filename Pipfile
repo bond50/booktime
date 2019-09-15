@@ -26,6 +26,7 @@ django-storages = "*"
 django-bootstrap4 = "*"
 django-crispy-forms = "*"
 django-widget-tweaks = "*"
+animate-css = "*"
 
 [requires]
 python_version = "3.7"

@@ -7,6 +7,7 @@ app_name = 'main'
 
 urlpatterns = [
 
+
     path('products/<slug:tag>/', views.ProductListView.as_view(), name="products", ),
     path("product/<slug:slug>/", DetailView.as_view(model=models.Product), name="product", ),
 ]

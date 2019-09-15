@@ -14,6 +14,11 @@ class SignupView(FormView):
     template_name = "accounts/register.html"
     form_class = UserCreationForm
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageTitle'] = "Sign Up"
+        return context
+
     def get_success_url(self):
         redirect_to = self.request.GET.get("next", "/")
         return redirect_to
@@ -86,15 +91,15 @@ def logout_user(request):
 #     return render(request, 'accounts/edit_profile.html', {'form': form})
 
 
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(data=request.POST, user=request.user)
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-            messages.success(request, 'You Have Successfully Updated Your Password')
-            return redirect('index')
-    else:
-        form = PasswordChangeForm(user=request.user)
-
-    return render(request, 'accounts/change_password.html', {'form': form})
+# def change_password(request):
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(data=request.POST, user=request.user)
+#         if form.is_valid():
+#             form.save()
+#             update_session_auth_hash(request, form.user)
+#             messages.success(request, 'You Have Successfully Updated Your Password')
+#             return redirect('index')
+#     else:
+#         form = PasswordChangeForm(user=request.user)
+#
+#     return render(request, 'accounts/change_password.html', {'form': form})

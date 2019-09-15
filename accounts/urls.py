@@ -11,6 +11,6 @@ urlpatterns = [
     path('login/',
          auth_views.LoginView.as_view(template_name="accounts/login.html", form_class=forms.AuthenticationForm, ),
          name='login'),
-    path('change_password/', views.change_password, name='change_password'),
+
 
 ]

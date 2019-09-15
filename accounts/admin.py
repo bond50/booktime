@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
-from . import  models
+from . import models
+
+
 # Register your models here.
 @admin.register(models.User)
 class UserAdmin(DjangoUserAdmin):
@@ -44,3 +46,5 @@ class UserAdmin(DjangoUserAdmin):
     search_fields = ("email", "first_name", "last_name")
     ordering = ("email",)
 
+
+admin.site.register(models.ImageUpload)

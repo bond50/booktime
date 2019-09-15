@@ -13,7 +13,7 @@
                                 {% csrf_token %}
                                 {% if form.errors %}
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close " data-dismiss="alert" aria-label="Close">
                                             <small><sup>x</sup></small>
                                         </button>
                                         {% for field in form %}
@@ -64,16 +64,17 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-center links">
+                        <div class="card-footer ">
+                            <div class="d-flex justify-content-center links animated lightSpeedIn">
                                 <a href="{% url 'index' %}">Return to shop</a>
                             </div>
+                            <br>
 
-                            <div class="d-flex justify-content-center links">
+                            <div class="d-flex justify-content-center links animated lightSpeedIn">
                                 <a href="{% url 'accounts:register' %}">Register</a>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center links">
+                        <div class="d-flex justify-content-center links animated lightSpeedIn">
                             <a href="{% url 'accounts:register' %}">Forgot your password?</a>
                         </div>
                     </div>

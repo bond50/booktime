@@ -18,7 +18,9 @@ def contact_us(request):
             return redirect('index')
     else:
         form = ContactForm()
-    return render(request, 'contact/contacts.html', {'form': form})
+    return render(request, 'contact/contacts.html', {'form': form,
+                                                     'pageTitle': 'Contact us'
+                                                     })
 
 # class ContactUsView(FormView):
 #     template_name = "contact/contacts.html"
