@@ -9,12 +9,11 @@
     <!-- Alternative to Bootstrap 3 Glyphicons -->
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/cusomizedcss.css' %}" rel="stylesheet">
-
     <link href="{% static 'css/fontt.css' %}" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg  fixed-top">
     <a class="brand-navbar" href="#"><img src="{% static 'img/logo.png' %}" alt="Responsive image"
                                           height="60px"></a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
@@ -32,11 +31,6 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link"><i class="fa fa-briefcase"></i>Product</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-shopping-cart"></i>Cart</a>
-
             </li>
             <li class="nav-item {% if request.path == "/contact/email/" %}active{% endif %}">
                 <a href="{% url 'contact:contact' %}" class="nav-link"><i class="fa fa-phone"></i>Contact Us</a>
@@ -64,7 +58,14 @@
             </div>
             <a class="btn btn-success btn-sm ml-3" href="{% url 'basket:basket' %}">
                 <i class="fa fa-shopping-cart"></i> Cart
-                <span class="badge badge-light">3</span>
+                <span class="badge badge-light">
+                    {% if request.basket %}
+                        <div>
+                            {{ request.basket.count }}
+                        </div>
+                    {% endif %}
+
+                </span>
             </a>
         </form>
     </div>
