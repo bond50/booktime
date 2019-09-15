@@ -1,6 +1,7 @@
-
 from django.views.generic import ListView
 from accounts.models import ImageUpload
+
+
 
 
 class HomePageView(ListView):
@@ -11,3 +12,5 @@ class HomePageView(ListView):
         context = super().get_context_data(**kwargs)
         context['pageTitle'] = "Home "
         return context
+
+

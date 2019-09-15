@@ -46,4 +46,7 @@ class ProductImage(models.Model):
     image = models.ImageField(upload_to="product-images")
     thumbnail = models.ImageField(upload_to="product-thumbnails", null=True)
 
+    def __str__(self):
+        return self.product
+
 

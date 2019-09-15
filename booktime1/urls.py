@@ -4,6 +4,10 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
 from . import views
+
+handler404 = 'accounts.views.handler404'
+
+
 from django.conf.urls.static import static
 
 urlpatterns = [

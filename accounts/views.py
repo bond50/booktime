@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from .forms import UserCreationForm
-
+from django.shortcuts import render_to_response
 
 import logging
 from django.contrib import messages
@@ -42,8 +42,10 @@ def logout_user(request):
     return redirect('index')
 
 
-
-
+def handler404(request, exception, template_name="404.html"):
+    response = render_to_response("404.html")
+    response.status_code = 404
+    return response
 
 # def login_user(request):
 #     if request.method == 'POST':
